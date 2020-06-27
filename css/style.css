@@ -8,6 +8,11 @@ body {
   font-weight: 100;
 }
 
+a {
+  color: inherit;
+  text-decoration:none;
+}
+
 .container {
   margin: 0 auto;
   max-width: 940px; 
@@ -72,7 +77,7 @@ body {
 }
 
 .nav ul li{
-  color: #fff;
+  color: #EBF917;
   display: inline-block; 
   height: 80px;
   line-height: 80px; 
@@ -81,8 +86,11 @@ body {
   transition: background .5s; 
 }
 
+
+
 .btn:hover, .nav ul li:hover {
   background: #11f2ff;
+  color: #4B003E;
   cursor: pointer; 
   transition: background .5s;  
 }
