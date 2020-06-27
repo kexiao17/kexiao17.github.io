@@ -78,6 +78,7 @@ a {
 
 .nav ul li{
   color: #EBF917;
+  font-weight: bold;
   display: inline-block; 
   height: 80px;
   line-height: 80px; 
