@@ -5,9 +5,28 @@ html, body {
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 200;
 }
 
+a:link{
+  color: #2243FA;
+  text-decoration: none;
+}
+
+a:visited{
+  color: #F472E6;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #93017A;
+  text-decoration: underline;
+}
+
+a:active{
+  color: #FEFE0E;
+  text-decoration: underline;
+}
 
 .container {
   margin: 0 auto;
