@@ -35,29 +35,30 @@ a:active{
 }
 
 .header {
-  background: url(../img/personal/background.JPG) no-repeat center center; 
+  background: url(../img/personal/background01.JPG) no-repeat center center; 
   background-size: cover;
-  height: 600px;
+  height: 300px;
   text-align: center; 
 }
 
 .header .container {
   position: relative;
-  top: 200px;
+  top: 70px;
 }
 
 .header h1 {
   color: #fff;
-  line-height: 100px; 
-  font-size: 80px;
-  margin-top: 0;
-  margin-bottom: 80px;
+  text-align: right;
+  line-height: 20px; 
+  font-size: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   text-transform: uppercase; 
 }
 
 @media (min-width:850px) {
   .header h1 {
-    font-size: 120px;
+    font-size: 70px;
   }
 }
 
@@ -68,6 +69,10 @@ a:active{
   margin-bottom: 40px;
   margin-top: 0;
   text-transform: uppercase; 
+}
+
+.main p {
+    font-weight: 400;
 }
 
 .btn {
@@ -94,6 +99,8 @@ a:active{
 .nav ul li{
   color: #EBF917;
   font-weight: bold;
+  font-style: oblique;
+  font-size: 20px;
   display: inline-block; 
   height: 80px;
   line-height: 80px; 
@@ -143,6 +150,7 @@ a:active{
 .upcoming p {
   color: #fff; 
   text-align: right; 
+  font-weight:400;
 }
 
 .upcoming .btn {
