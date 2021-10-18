@@ -2,7 +2,7 @@
 <html>
     <!-- The HEAD of the page -->
     <head>
-        <title>Ke Xiao - About</title>
+        <title>Ke Xiao - Home</title>
         <link rel="icon" type="image/x-icon" href="../img/UMass_logo/UMass_logo_64x64.png">
         <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100' rel='stylesheet' type='text/css'>
         <link href="../css/style.css" type="text/css" rel="stylesheet">
@@ -15,42 +15,134 @@
         <div class='nav'>
             <ul>
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="./research.html">Research</a></li>
-                <li><a href="./cv.html">CV</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li><a href="./about.html">About</a></li>
+                <li><a href="../subpages/research.html">Research</a></li>
+                <!--li><a href="subpages/cv.html">CV</a></li-->
+                <li><a href="../pdf/kexiao_cv.pdf" download target="_blank">CV</a></li>
+                <!--
+                <li><a href="subpages/contact.html">Contact</a></li>
+                -->
+                <li><a href="../subpages/about.html">About</a></li>
             </ul>
         </div>
 
         <!-- MAIN -->
         <div class='main'>
-            <div class='container'>
-                <img src="../img/personal/aboutme_01_270x360.JPG" height="360" width="270">
+            <!-- Projects -->
+            <div class="container">
+                <h2>Projects</h2>
+                <table>
+                <tr>
+                    <td style="width:5%">
+                    </td>
+                    <td style="width:95%">
+                        <h3> Bicuspid Aortic Valve Malformation Classification with Weak Supervision</h3>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:5%">
+                    </td>
+                    <td style="wdith:95%">
+                        I worked on the project of detecting the bicuspid aortic valve malformation at Stanford.
+                        Normal aortic valve has three cuspids, and due to congenital conditions and unhealthy lifestyles, it could
+                        lead to a malformation of bicuspid valve.
+                        And if left undetected and untreated, it could lead to cardiac arrest or worse.
+                        The main difficulty in this project is that the condition has a prevalence of less than 2% in general
+                        population, and only about 6% in our dataset.
+                        On top of this, we are working with unlabeled datasets from the UK Biobank.
+                        We applied domain knowledge on processed segments to form noisy
+                        weak labels which is in turn used to train a deep neural network model (CNN-LSTM) to generate the final
+                        predictions. In the final classification results, we have a 61% improvement in F1 score (37.8 to 60.8),
+                        171% improvement in precision (30.7 to 83.3), and model improves as we add more unlabeled data!
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:5%">
+                    </td>
+                    <td style="wdith:95%">
+                        <img src="../img/projects/BAV_Poster.png" width=auto height=auto>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:5%">
+                    </td>
+                    <td style="wdith:95%">
+                        <h3>Mitral Regurgitation Classification with Cardiac MRI Sequences</h3>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:5%">
+                    </td>
+                    <td style="wdith:95%">
+                        Mitral valve is the valve connecting the left atrium and left ventricle of the heart. Mitral valve
+                        regurgitation is the condition where the blood flows back from the left ventricle into the left atrium.
+                        And if left undetected and untreated, it will lead to severe complications including pulmonary edema,
+                        blood clots, stroke, heart failure.
+                        In the Mitral Valve Regurgitation classification pipeline, we employed a U-Net segmentation model and
+                        applied the masks to the raw MRI datasets, then feed the center-cropped, masked dataset into a
+                        discriminative deep neural network to get final probabilistic labels.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:5%">
+                    </td>
+                    <td style="wdith:95%">
+                        <img src="../img/projects/MR_Poster.png" width=auto height=auto>
+                    </td>
+                </tr>
+
+                </table>
             </div>
-            <div class='container'>
-                <img src="../img/personal/seal_360x270.jpg" height="360" width="270">
-            </div>
-            <div class='container'>
-                <img src="../img/personal/cat_270x360.JPG" height="360" width="270">
-            </div>
-            <div class='container'>
-                <img src="../img/personal/tater_tot_638x850.jpg" height="637.5" width="850">
+
+        </div>
+
+
+
+        <!-- UPCOMING -->
+        <div class="upcoming">
+            <div class="container">
+                <h2>Upcoming</h2>
+                <p>In 2021 Fall, I am working as the Teaching Assistant in <em>COMPSCI 589 - Machine Learning</em> 
+                   class </br> delivered by <a href="https://www.cics.umass.edu/people/fiterau-brostean-madalina" 
+                   target="_blank">Prof. Madalina Fiterau</a>. </p>
+
+                <p>In 2021 Summer and Fall, I am working as an AI research intern at Invitae, working on graphical
+                   modeling and polygenic risk score analysis.
+                </p>
             </div>
         </div>
 
         <!-- FOOTER -->
         <div class="footer">
             <div class="container">
-                <a href="mailto:xiaoke17@gmail.com"><img src="../img/contact/logo_gmail_sq.png" height="32" width="32"></a>
-                <a href="mailto:kexiao@cs.umass.edu"><img src="../img/UMass_logo/UMass_logo_32x32.png" height="32" width="32"></a>
-                <a href="https://github.com/kexiao17"><img src="../img/contact/logo_github.jpg" height="32" width="32"></a>
-                <a href="https://scholar.google.com/citations?user=UMVvb28AAAAJ&hl=en"><img src="../img/contact/logo_google_scholar_500x500.jpg" height="32" width="32"></a>
-                <a href="https://twitter.com/Kexiao17"><img src="../img/contact/logo_twitter.png" height="32" width="32"></a>
+                <a href="mailto:xiaoke17@gmail.com" target="_blank">
+                    <img src="../img/contact/logo_gmail.png" height="32" width="32">
+                </a>
+                <a href="mailto:kexiao@cs.umass.edu" target="_blank">
+                    <img src="../img/UMass_logo/UMass_logo.png" height="32" width="32">
+                </a>
+                <a href="https://github.com/kexiao17" target="_blank">
+                    <img src="../img/contact/logo_github.jpg" height="32" width="32">
+                </a>
+                <a href="https://scholar.google.com/citations?user=UMVvb28AAAAJ&hl=en" target="_blank">
+                    <img src="../img/contact/logo_google_scholar.jpg" height="32" width="32">
+                </a>
+                <a href="https://twitter.com/Kexiao17" target="_blank">
+                    <img src="../img/contact/logo_twitter.png" height="32" width="32">
+                </a>
+                <a href="https://www.linkedin.com/in/kexiao-cs" target="_blank">
+                    <img src="../img/contact/logo_linkedin.png" height="32" width="32">
+                </a>
+                <a href="https://github.com/Information-Fusion-Lab-Umass" target="_blank">
+                    <img src="../img/contact/logo_info_fusion.png" height="32" width="32">
+                </a>
                 <p>&copy; 2021 Ke Xiao</p>
             </div>
         </div>
-
-
 
 
     </body>
