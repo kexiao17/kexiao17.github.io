@@ -1,0 +1,72 @@
+<html><head><style>body {
+   color: black;
+}
+
+code {
+  background-color: #eee;
+  border: 0px solid #999;
+  display: block;
+  padding: 5px;
+}</style></head><body><h1 id="running-jupyter-notebook-on-remote-server-with-slurm-gypsum-">Running Jupyter Notebook on Remote Server with Slurm (Gypsum)</h1>
+<p>There are two ways to connect to gypsum server at gypsum.cs.umass.edu. </p>
+<ul>
+<li>One way is to be physically on campus or connected via VPN (<a href="https://www.umass.edu/it/support/vpn/howinstallanduseglobalprotectvpnclient">GlobalProtect</a>)</li>
+<li>One way is to use a jump host (gypsum-gateway.cs.umass.edu, see <a href="https://gypsum-docs.cs.umass.edu/ssh.html">here</a>). </li>
+</ul>
+<h1 id="with-no-jump-host">With no jump host</h1>
+<h2 id="on-the-first-terminal">On the first terminal</h2>
+<ul>
+<li><p>Log into gypsum on one terminal:</br>
+<code>ssh username@gypsum.cs.umass.edu</code></p>
+</li>
+<li><p>Then start an <a href="https://gypsum-docs.cs.umass.edu/user.html">interactive job</a> (requesting a node with cpu/gpu):</br>
+<code>srun -p m40-short -t 0-01:00 --pty bash</code></br>
+Or to add <a href="https://slurm.schedmd.com/sbatch.html">arguments</a> to request additional resources, such as using </br>
+<code>srun -p m40-short -t 0-01:00 --gres=gpu:1 --pty bash</code> to request a gpu.
+Note: after the node has been request, you should be able to see the node name on your prompt <code>username@node001</code>, or you could use <code>ifconfig</code> to find the ip address to use in place of the node name as well. With gpu requested, the node name will not be started with <code>node001</code>, but maybe <code>node012</code>, be sure to look for the node name before tunneling.</p>
+</li>
+<li><p>Last step, launch a jupyter notebook session with no browser:</br>
+<code>jupyter notebook --no-browser --port 9099</code></p>
+</li>
+<li><p>To run the jupyter notebook session on the background, <code>tmux</code> or <code>screen</code> could be used. </p>
+</li>
+</ul>
+<h2 id="on-the-second-terminal">On the second terminal</h2>
+<ul>
+<li><p>Start a ssh tunneling session to tunnel through login node and the interactive job node:</br>
+<code>ssh -t -t username@gypsum.cs.umass.edu -L 7077:localhost:8088 ssh node001 -L 8088:localhost:9099</code></br>
+Note: this command forwards the port 9099 on node001 to the port 8088 on the gypsum login node, and then forward it to the port 7077 on the local host.</p>
+</li>
+<li><p>Finally, open a web browser, enter the address, and have fun:</br>
+<code>localhost:7077</code></p>
+</li>
+</ul>
+<h1 id="with-a-jump-host-https-gypsum-docs-cs-umass-edu-ssh-html-tldr-look-for-the-font-color-red-different-font-part-">With a <a href="https://gypsum-docs.cs.umass.edu/ssh.html">jump host</a> (TLDR: look for the <font color="red"><strong>different</strong></font> part)</h1>
+<h2 id="on-the-first-terminal">On the first terminal</h2>
+<ul>
+<li><p>[<font color="red"><strong>Different</strong></font>]Log into gypsum on one terminal:</br>
+<code>ssh -J username@gypsum-gateway.cs.umass.edu username@gypsum.cs.umass.edu</code></p>
+</li>
+<li><p>Then start an <a href="https://gypsum-docs.cs.umass.edu/user.html">interactive job</a> (requesting a node with cpu/gpu):</br>
+<code>srun -p m40-short -t 0-01:00 --pty bash</code></br>
+Or to add <a href="https://slurm.schedmd.com/sbatch.html">arguments</a> to request additional resources, such as using </br>
+<code>srun -p m40-short -t 0-01:00 --gres=gpu:1 --pty bash</code> to request a gpu.
+Note: after the node has been request, you should be able to see the node name on your prompt <code>username@node001</code>, or you could use <code>ifconfig</code> to find the ip address to use in place of the node name as well. With gpu requested, the node name will not be started with <code>node001</code>, but maybe <code>node012</code>, be sure to look for the node name before tunneling.</p>
+</li>
+<li><p>Last step, launch a jupyter notebook session with no browser:</br>
+<code>jupyter notebook --no-browser --port 9099</code></p>
+</li>
+<li><p>To run the jupyter notebook session on the background, <code>tmux</code> or <code>screen</code> could be used. </p>
+</li>
+</ul>
+<h2 id="on-the-second-terminal">On the second terminal</h2>
+<ul>
+<li><p>[<font color="red"><strong>Different</strong></font>] Start a ssh tunneling session to tunnel through login node and the interactive job node:</br>
+<code>ssh -t -t -J username@gypsum-gateway.cs.umass.edu username@gypsum.cs.umass.edu -L 7077:localhost:8088 ssh node001 -L 8088:localhost:9099</code></br>
+Note: this command forwards the port 9099 on node001 to the port 8088 on the gypsum login node, and then forward it to the port 7077 on the local host.</p>
+</li>
+<li><p>Finally, open a web browser, enter the address, and have fun:</br>
+<code>localhost:7077</code></p>
+</li>
+</ul>
+</body></html>
